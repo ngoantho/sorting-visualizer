@@ -1,22 +1,36 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <h1 class="title">Sorting algorithm visualizer</h1>
+  <div id="landing">
+    <panel></panel>
+    <chart></chart>
+  </div>
 </template>
 
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import Panel from "./components/Panel.vue"
+import Chart from "./components/Chart.vue"
 
-// This starter template is using Vue 3 experimental <script setup> SFCs
-// Check out https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md
+export default {
+  components: {
+    Panel,
+    Chart
+  }
+}
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+:root {
+  font-size: 16px;
 }
+
+.title {
+  text-align: center;
+}
+
+#landing {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 </style>
