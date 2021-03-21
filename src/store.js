@@ -6,6 +6,11 @@ let store = createStore({
       array: [],
     };
   },
+  getters: {
+    array(state) {
+      return state.array;
+    },
+  },
   mutations: {
     update(state, newArray) {
       state.array = newArray;

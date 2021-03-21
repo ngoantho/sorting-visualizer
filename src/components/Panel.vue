@@ -14,14 +14,15 @@
         <button @click="genNewArray">Generate random</button>
       </div>
     </fieldset>
-    <fieldset>
-      <legend>Sort settings</legend>
-    </fieldset>
+    <sort-panel></sort-panel>
   </aside>
 </template>
 
 <script>
+import SortPanel from "./SortPanel.vue"
+
 export default {
+  components: {SortPanel},
   data() {
     return {
       minBars: 5,

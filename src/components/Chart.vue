@@ -15,7 +15,7 @@
 export default {
   computed: {
     array() {
-      return this.$store.state.array;
+      return this.$store.getters.array;
     }
   }
 }
