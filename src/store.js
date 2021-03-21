@@ -1,4 +1,7 @@
 import { createStore } from "vuex";
+import mitt from "mitt";
+
+const emitter = mitt();
 
 let store = createStore({
   state() {
@@ -24,3 +27,4 @@ let store = createStore({
 });
 
 export default store;
+export { emitter };

@@ -1,11 +1,18 @@
 <template>
-  <h1>QuickSort</h1>
+  
 </template>
 
 <script>
+import {emitter} from "../../store"
+
 export default {
   mounted() {
-    console.log("hello?")
+    emitter.on("algo-QuickSort", () => this.run())
+  },
+  methods: {
+    run() {
+      
+    }
   }
 }
 </script>

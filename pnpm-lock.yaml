@@ -1,5 +1,6 @@
 dependencies:
   es6-promise: 4.2.8
+  mitt: 2.1.0
   vue: 3.0.7
   vuex: 4.0.0_vue@3.0.7
 devDependencies:
@@ -255,6 +256,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
+  /mitt/2.1.0:
+    dev: false
+    resolution:
+      integrity: sha512-ILj2TpLiysu2wkBbWjAmww7TkZb65aiQO+DkVdUTBpBXq+MHYiETENkKFMtsJZX1Lf4pe4QOrTSjIfUwN5lRdg==
   /nanoid/3.1.22:
     dev: true
     engines:
@@ -432,6 +437,7 @@ specifiers:
   '@vitejs/plugin-vue': ^1.1.5
   '@vue/compiler-sfc': ^3.0.5
   es6-promise: ^4.2.8
+  mitt: ^2.1.0
   vite: ^2.1.0
   vue: ^3.0.5
   vuex: ^4.0.0
