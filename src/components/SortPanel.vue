@@ -41,8 +41,27 @@ export default {
     sort() {
       emitter.emit(`algo-${this.selected}`, this.intSpeed);
     },
+    changeColor(color, index) {
+      let temp = document.getElementById(`bar-${index}`);
+      if (temp) {
+        temp.style.backgroundColor = color;
+      }
+    },
+    resetAllBars(color) {
+      let bars = document.querySelector("#main").children;
+      [...bars].forEach((bar) => {
+        bar.style.backgroundColor = color;
+      });
+    },
     handleSwap(data) {
-      this.$store.dispatch("update", data.arr);
+      this.changeColor("red", data.left);
+      this.changeColor("blue", data.right);
+      setTimeout(() => {
+        this.$store.dispatch("update", data.arr);
+      }, this.intSpeed);
+      setTimeout(() => {
+        this.resetAllBars("chartreuse");
+      }, this.intSpeed);
     },
   },
 };

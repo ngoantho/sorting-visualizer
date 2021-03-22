@@ -3,11 +3,12 @@
     <div
       class="bar"
       v-for="(el, index) in array"
-      :style="{height: `${el}px`}"
-      :id="`bar-${index}`" 
-      :key="index">
-        <span class="bar-number">{{el}}</span>
-      </div>
+      :style="{ height: `${el}px`, width: `${barwidth}rem` }"
+      :id="`bar-${index}`"
+      :key="index"
+    >
+      <span class="bar-number">{{ el }}</span>
+    </div>
   </main>
 </template>
 
@@ -16,9 +17,12 @@ export default {
   computed: {
     array() {
       return this.$store.getters.array;
-    }
-  }
-}
+    },
+    barwidth() {
+      return 25 / this.$store.getters.array.length;
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -27,16 +31,16 @@ export default {
 }
 
 .bar {
-  width: 2rem;
   display: inline-block;
   background-color: chartreuse;
   position: relative;
-  text-align: center;
+  margin-right: 0.5rem;
 }
 
 .bar .bar-number {
   position: absolute;
-  top: -1rem;
-  left: 0.25rem;
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  top: -1.5rem;
 }
 </style>

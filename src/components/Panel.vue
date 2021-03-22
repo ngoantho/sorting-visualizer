@@ -9,7 +9,7 @@
       </div>
       <div>
         Sorting speed:
-        <input type="range" min="100" max="500" v-model="speed" />
+        <input type="range" min="0" max="300" v-model="speed" />
         {{ speed }}ms
       </div>
       <div>
