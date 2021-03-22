@@ -39,6 +39,7 @@ export default {
   },
   methods: {
     sort() {
+      emitter.emit("sortingStart");
       emitter.emit(`algo-${this.selected}`, this.intSpeed);
     },
     changeColor(color, index) {

@@ -33,6 +33,8 @@ export default {
         }
         index--;
       }
+
+      emitter.emit("sortingEnd");
     },
     pause(speed) {
       return new Promise((resolve) =>

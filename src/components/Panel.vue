@@ -4,24 +4,39 @@
       <legend>Graph settings</legend>
       <div>
         Number of bars:
-        <input type="range" :min="minBars" :max="maxBars" v-model="nBars" />
+        <input
+          type="range"
+          :min="minBars"
+          :max="maxBars"
+          v-model="nBars"
+          :disabled="disabled"
+        />
         {{ nBars }}
       </div>
       <div>
         Sorting speed:
-        <input type="range" min="0" max="300" v-model="speed" />
+        <input
+          type="range"
+          min="0"
+          max="300"
+          v-model="speed"
+          :disabled="disabled"
+        />
         {{ speed }}ms
       </div>
       <div>
-        <button @click="genNewArray">Generate random</button>
+        <button @click="genNewArray" :disabled="disabled">
+          Generate random
+        </button>
       </div>
     </fieldset>
-    <sort-panel :speed="speed"></sort-panel>
+    <sort-panel :speed="speed" :disabled="disabled"></sort-panel>
   </aside>
 </template>
 
 <script>
 import SortPanel from "./SortPanel.vue";
+import { emitter } from "../store";
 
 export default {
   components: { SortPanel },
@@ -31,10 +46,17 @@ export default {
       maxBars: 50,
       nBars: 20,
       speed: "100",
+      disabled: false,
     };
   },
   mounted() {
     this.genNewArray();
+    emitter.on("sortingStart", () => {
+      this.disabled = true;
+    });
+    emitter.on("sortingEnd", () => {
+      this.disabled = false;
+    });
   },
   methods: {
     genNewArray() {

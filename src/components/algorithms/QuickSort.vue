@@ -13,11 +13,14 @@ export default {
   data() {
     return {
       speed: 0,
+      counter: 0,
     };
   },
   methods: {
-    run() {
+    async run() {
+      this.counter = 0;
       let arr = [...this.$store.getters.array];
+
       this.quickSort(arr, 0, arr.length - 1);
     },
     swap(items, leftIndex, rightIndex) {
@@ -66,6 +69,10 @@ export default {
         }
       }
 
+      this.counter++;
+      if (this.counter == items.length - 1) {
+        emitter.emit("sortingEnd");
+      }
       return items;
     },
     pause(speed) {
