@@ -56,12 +56,13 @@ export default {
     handleSwap(data) {
       this.changeColor("red", data.left);
       this.changeColor("blue", data.right);
+
       setTimeout(() => {
-        this.$store.dispatch("update", data.arr);
+        this.changeColor("chartreuse", data.left);
+        this.changeColor("chartreuse", data.right);
       }, this.intSpeed);
-      setTimeout(() => {
-        this.resetAllBars("chartreuse");
-      }, this.intSpeed);
+
+      this.$store.dispatch("update", data.arr);
     },
   },
 };
